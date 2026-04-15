@@ -1,0 +1,13 @@
+# secrets — real config lives locally, example is committed
+mcp-servers.json
+
+# ddns runtime
+ddns/ddns-update.log
+
+# misc
+.DS_Store
+.env
+.env.local
+
+# claude project-local settings (per-workstation)
+.claude/settings.local.json

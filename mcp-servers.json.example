@@ -1,0 +1,60 @@
+{
+  "mcpServers": {
+    "mam": {
+      "command": "npx",
+      "args": ["tsx", "/home/nstolmaker/dev/mcp-servers/mam/src/mcp/index.ts"],
+      "env": {
+        "MAM_CONFIG_PATH": "/home/nstolmaker/dev/mcp-servers/mam/config.json"
+      }
+    },
+    "kb": {
+      "command": "npx",
+      "args": ["tsx", "/home/nstolmaker/dev/mcp-servers/kb/src/mcp/index.ts"],
+      "env": {
+        "PG_HOST": "truenas.local",
+        "PG_PORT": "5432",
+        "PG_USER": "kb_user",
+        "PG_PASSWORD": "REPLACE_ME",
+        "PG_DATABASE": "kb",
+        "KB_OPENAI_API_KEY": "REPLACE_ME",
+        "KB_SOURCE_DIR": "/home/nstolmaker/dev/mcp-servers/kb/books",
+        "KB_UI_PORT": "9724",
+        "KB_API_PORT": "9725",
+        "KB_API_KEY": "REPLACE_ME"
+      }
+    },
+    "ads-manager": {
+      "command": "npx",
+      "args": ["tsx", "/home/nstolmaker/dev/mcp-servers/ads-manager/src/mcp/index.ts"],
+      "env": {
+        "PG_HOST": "truenas.local",
+        "PG_PORT": "5432",
+        "PG_USER": "postgres",
+        "PG_PASSWORD": "REPLACE_ME",
+        "PG_DATABASE": "ads_manager",
+        "GOOGLE_ADS_REFRESH_TOKEN": "REPLACE_ME",
+        "GOOGLE_ADS_DEVELOPER_TOKEN": "REPLACE_ME",
+        "GOOGLE_ADS_CLIENT_ID": "REPLACE_ME",
+        "GOOGLE_ADS_CLIENT_SECRET": "REPLACE_ME",
+        "GOOGLE_ADS_ACCOUNT_CUSTOMER_ID": "REPLACE_ME",
+        "GOOGLE_ADS_MCC_CUSTOMER_ID": "REPLACE_ME",
+        "TEST_GOOGLE_ADS_ACCOUNT_CUSTOMER_ID": "REPLACE_ME",
+        "TEST_GOOGLE_ADS_MCC_CUSTOMER_ID": "REPLACE_ME",
+        "ANTHROPIC_API_KEY": "REPLACE_ME",
+        "ADS_MANAGER_OPENAI_API_KEY": "REPLACE_ME",
+        "DISCORD_BOT_TOKEN": "REPLACE_ME",
+        "DISCORD_CHANNEL_ID": "REPLACE_ME",
+        "DISCORD_BOT_APPLICATION_ID": "REPLACE_ME",
+        "OPENCLAW_HOOK_URL": "http://127.0.0.1:18789/hooks/agent",
+        "OPENCLAW_HOOK_TOKEN": "REPLACE_ME",
+        "TOTAL_MONTHLY_BUDGET_USD": "500",
+        "SEED_IDEA_BUDGET_PCT": "0.07",
+        "PERSONA_MIN_BUDGET_PCT": "0.10",
+        "LOOP_INTERVAL_DAYS": "7",
+        "MODE": "hitl",
+        "KNOWLEDGE_SOURCE_DIR": "./books",
+        "KNOWLEDGE_UI_PORT": "9723"
+      }
+    }
+  }
+}
