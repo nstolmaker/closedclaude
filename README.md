@@ -7,10 +7,26 @@ local MCP servers up to Claude and other agents.
 
 ```
 ~/dev/
-├── closedclaude/       # this repo — proxy config, systemd, ddns, skill templates
-├── mcp-servers/        # monorepo of MCP servers (mam inline; kb, ads-manager symlinked)
-└── standalone-repos/   # independent repos (kb, ads-manager) symlinked into mcp-servers
+├── closedclaude/          # this repo — proxy config, systemd, ddns, skill templates, openai-image-gen CLI
+│   ├── mcp-servers.json         # chmod 600, gitignored (live config with secrets)
+│   ├── mcp-servers.json.example # sanitized template, committed
+│   ├── ddns/                    # Route 53 dynamic DNS updater (cron every 5 min)
+│   ├── systemd/                 # mcp-proxy.service unit
+│   ├── openai-image-gen/        # CLI used by lp-tile-image-gen skill
+│   └── nginx-mcp.conf           # TLS + bearer-auth reverse proxy for mcp.noah.space
+├── mcp-servers/           # local monorepo (no remote yet) — path the proxy references
+│   ├── mam/                     # inline server (no separate repo)
+│   ├── kb -> ../standalone-repos/kb             # symlink
+│   └── ads-manager -> ../standalone-repos/ads-manager  # symlink
+└── standalone-repos/      # servers with their own GitHub repos
+    ├── kb/                      # github.com/nstolmaker/kb
+    └── ads-manager/             # github.com/nstolmaker/ads-manager
 ```
+
+The symlink-at-`mcp-servers/<name>` pattern keeps proxy paths stable while
+letting each standalone server live in its own independently-versioned repo.
+New servers can start inline in `mcp-servers/` and graduate to `standalone-repos/`
+later by moving the dir and replacing with a symlink.
 
 ## Contents
 
